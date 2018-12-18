@@ -8,7 +8,10 @@ import static com.example.pjackson.ddapplication.Constants.*;
 public class Character {
     // Constructor
     Character() {
+        characterName = "Drarr";
+
         Random r = new Random();
+        totalLevel = r.nextInt(20) + 1;
         abilityScores = new int[]{r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6};
         proficiencyBonus = r.nextInt(5);
         speeds = new int[]{30,r.nextInt(30),15,r.nextInt(30),15};
@@ -21,6 +24,8 @@ public class Character {
 
 
     // Variables
+    private String characterName;
+    private int totalLevel;
     private int[] abilityScores;
     private int proficiencyBonus;
     private int[] speeds;
@@ -106,7 +111,9 @@ public class Character {
 
     public String getCharacterSummary()
     {
-        String ret = "Ability Scores: ";
+        String ret = characterName;
+        ret += "\n\nTotal Level: " + totalLevel;
+        ret += "\n\nAbility Scores: ";
         for (int i = 0; i < 6; i++)
             ret += "\n" + abilityScores[i] + "-" + getAbilityModifier(i) + " (" + getSavingThrow(i) + "), ";
 
@@ -136,6 +143,12 @@ public class Character {
 
 
     // Getters and Setters
+    public String getCharacterName() {return characterName;}
+    public void setCharacterName(String characterName) {this.characterName = characterName;}
+
+    public int getTotalLevel() {return totalLevel;}
+    public void setTotalLevel(int totalLevel) {this.totalLevel = totalLevel;}
+
     public int[] getAbilityScores() {return abilityScores;}
     public void setAbilityScores(int[] abilityScores) {this.abilityScores = abilityScores;}
 
