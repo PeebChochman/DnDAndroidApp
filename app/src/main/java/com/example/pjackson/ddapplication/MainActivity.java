@@ -14,12 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Character character = new Character();
-
         Button btn = findViewById(R.id.btnTRand);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Character character = new Character();
                 TextView summaryView = findViewById(R.id.txtSummary);
                 summaryView.setText(character.getCharacterSummary());
                 Toast.makeText(MainActivity.this, "Success",Toast.LENGTH_LONG).show();

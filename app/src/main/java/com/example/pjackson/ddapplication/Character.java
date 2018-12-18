@@ -1,17 +1,21 @@
 package com.example.pjackson.ddapplication;
 
+import java.util.Random;
+
 import static com.example.pjackson.ddapplication.Constants.*;
 
 
 public class Character {
     // Constructor
     Character() {
-        abilityScores = new int[]{17,10,13,8,12,15};
-        proficiencyBonus = 2;
-        speeds = new int[]{30,5,15,0,15};
-        hitpoints = 11;
-        savingThrowProficiency = new boolean[]{false,false,false,false,true,true};
-        skillProficiency = new boolean[]{false,false,false,false,false,true,true,false,false,false,false,false,false,true,true,false,false,false};
+        Random r = new Random();
+        abilityScores = new int[]{r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6,r.nextInt(14) + 6};
+        proficiencyBonus = r.nextInt(5);
+        speeds = new int[]{30,r.nextInt(30),15,r.nextInt(30),15};
+        hitpoints = r.nextInt(140) + 10;
+        savingThrowProficiency = new boolean[]{r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean()};
+        skillProficiency = new boolean[]{r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),
+                r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean(),r.nextBoolean()};
     }
 
 
